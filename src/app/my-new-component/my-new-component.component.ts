@@ -45,7 +45,8 @@ export class MyNewComponentComponent implements OnInit {
     this.request=box_value;
     this.messages.push({message:this.request,type:"me"});
     console.log('request = ' + this.request);
-
+    // make testing easier fulfill the chat input with next user text
+    
     if(box_value=="I am from Berlin"){
        retVal= "ready";
     }
@@ -91,8 +92,10 @@ export class MyNewComponentComponent implements OnInit {
     return retVal;   
   }
  
+  // API AI response processor
   handleAPIAIresponse(response){
     console.log(response);
+    // handle next 
     let infographic = response.result.fulfillment.data.Infographics;
     if(infographic.hasOwnProperty("number")){
       console.log("infographic.number",infographic.number);
@@ -106,7 +109,6 @@ export class MyNewComponentComponent implements OnInit {
         this.messages.push({message:element,type:"agent"});
       }
     });
-    this.readings(response);
     this.ScrollDown();    
     
     let fire_event=response.result.fulfillment.data.fire_event;
@@ -140,36 +142,5 @@ export class MyNewComponentComponent implements OnInit {
       },1000);
     }
 
-  public readings(response) {
-    this.readings_data="";
-    if(response.result.fulfillment){
-      if(response.result.fulfillment.data){
-        let data =response.result.fulfillment.data;
-        if(data.action=='input.city'){
-            this.readings_data="I know you moving to "
-            +  data.distination_city 
-            + " and you are moving from "
-            + data.original_city 
-            + " and i can show here some readings regarding it";
-        }
-        else if(data.action=='input.city.rent'){
-            this.readings_data="I know that now you asked to see rent budget in "
-            +  data.distination_city 
-            + " and i can show here some readings regarding it";
-        }
-        else if(data.action=='input.neighborhood'){
-            this.readings_data="I know that now you picked neighborhood "
-            +  data.distination_Neighborhood 
-            + " and i can show here some readings regarding it";
-        }
-        else if(data.action=='input.typeofflat'){
-            this.readings_data="I know that now you picked type of flat "
-            +  data.distination_type_of_flat 
-            + " and i can show here some readings regarding it";
-        }
-        
-      }
-      
-    }
-  }
+
 }

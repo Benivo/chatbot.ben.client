@@ -11,6 +11,7 @@ import { Infographic5Component } from './Infographics/infographic5/infographic5.
 import { Infographic6Component } from './Infographics/infographic6/infographic6.component';
 import { Infographic7Component } from './Infographics/infographic7/infographic7.component';
 import { Infographic8Component } from './Infographics/infographic8/infographic8.component';
+import { ChatSendableTextComponent } from './chat-sendable-text/chat-sendable-text.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Infographic8Component } from './Infographics/infographic8/infographic8.
     Infographic5Component,
     Infographic6Component,
     Infographic7Component,
-    Infographic8Component
+    Infographic8Component,
+    ChatSendableTextComponent
   ],
   imports: [
     BrowserModule
