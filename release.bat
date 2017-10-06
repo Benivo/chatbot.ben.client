@@ -9,6 +9,6 @@ xcopy .\dist\assets\* ..\benivo.github.io\assets\*
 cd ..
 cd benivo.github.io
 git add *
-git commit -m "automatic push"
+git commit -m "release push"
 git push
 pause
