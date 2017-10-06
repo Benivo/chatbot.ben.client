@@ -83,8 +83,10 @@ export class MyNewComponentComponent implements OnInit {
     // send message to API AI and handle the response
     this.client.textRequest(this.request)
     .then((response) => {
-      this.handleAPIAIresponse(response);
-    })
+
+        this.handleAPIAIresponse(response);
+    
+      })
     .catch((error) => {
       console.log(error);
       this.response="sorry but something went wrong, try again in few minutes";
